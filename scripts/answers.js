@@ -39,13 +39,10 @@
         showQuestions() {
             let results = sessionStorage.getItem('results');
             this.resultsArray = (sessionStorage.getItem('results')) ? JSON.parse(results) : [];
-            console.log(this.resultsArray);
 
             document.getElementById('username').innerText = sessionStorage.getItem('name') + ' '
                 + sessionStorage.getItem('lastName') + ', '
                 + sessionStorage.getItem('email');
-            console.log(this.quiz);
-            console.log(this.rights);
 
             document.getElementById('pre-title').innerText = this.quiz.name;
 

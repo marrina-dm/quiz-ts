@@ -50,6 +50,12 @@ a {
     width: 100%;
 }
 
+.pre-title {
+    color: rgb(220, 220, 243);
+    font-size: 20px;
+    line-height: 24px;
+}
+
 .title {
     font-size: 48px;
     font-weight: 700;
@@ -87,6 +93,11 @@ a {
     background: rgb(50, 9, 138);
 }
 
+.btn:disabled {
+    background-color: #e2def7;
+    cursor: not-allowed;
+}
+
 a.btn {
     display: inline-block;
 }
@@ -102,9 +113,35 @@ a.btn {
     color: white;
 }
 
-.btn:disabled {
-    background-color: #e2def7;
-    cursor: not-allowed;
+.btn-transparent:disabled {
+    background: transparent;
+    color: #e2def7;
+    border: 1px solid #e2def7;
+}
+
+.link {
+    align-self: flex-end;
+    display: flex;
+    align-items: center;
+}
+
+.link a {
+    color: rgb(105, 51, 220);
+    font-size: 17px;
+    line-height: 20px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    transition: all .2s;
+}
+
+.link a:hover {
+    text-decoration: underline;
+}
+
+.link a img {
+    margin-left: 13px;
+    width: 8px;
 }
 
 .footer {

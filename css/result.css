@@ -1,5 +1,5 @@
 .result {
-    padding: 140px 0 91px 0;
+    padding: 100px 0 31px 0;
     text-align: center;
 }
 
@@ -12,7 +12,7 @@
 
 .result-image {
     position: absolute;
-    top: 225px;
+    top: 85px;
     z-index: -1;
 }
 
@@ -34,4 +34,8 @@
     font-size: 158px;
     font-weight: 700;
     line-height: 190px;
+}
+
+.open-answers {
+    margin-top: 80px;
 }

@@ -2,12 +2,6 @@
     padding: 20px 0 50px 0;
 }
 
-.test-pre-title {
-    color: rgb(220, 220, 243);
-    font-size: 20px;
-    line-height: 24px;
-}
-
 .test-progress-bar {
     margin: 60px 0 80px 0;
     display: flex;
@@ -158,21 +152,45 @@ input[type="radio"]:checked::before {
     margin-top: 10px;
 }
 
-.test-pass-question a {
+.test-pass-question button {
     color: rgb(105, 51, 220);
+    font-family: "Museo Sans Cyrl", sans-serif;
+    font-weight: 500;
     font-size: 17px;
     line-height: 20px;
     text-decoration: none;
     display: flex;
     align-items: center;
     transition: all .2s;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    cursor: pointer;
 }
 
-.test-pass-question a:hover {
+.test-pass-question button:hover {
     text-decoration: underline;
 }
 
-.test-pass-question a img {
-    width: 8px;
+.test-pass-question button img {
     margin-left: 13px;
+    width: 8px;
+}
+
+.non-active-arrow {
+    display: none;
+}
+
+#pass:disabled {
+    color: #e2def7;
+    cursor: not-allowed;
+    text-decoration: none;
+}
+
+#pass:disabled .non-active-arrow {
+    display: inline;
+}
+
+#pass:disabled .active-arrow {
+    display: none;
 }

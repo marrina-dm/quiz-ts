@@ -1,50 +1,45 @@
 import {UrlManager} from "../utils/url-manager.js";
+import {CustomHttp} from "../services/custom-http";
+import config from "../../config/config";
+import {Auth} from "../services/auth";
 
 export class Answers {
     quiz = null;
-    rights = null;
     currentIndex = 1;
-    resultsArray = null;
+    routeParams = null;
+    userInfo = null;
 
     constructor() {
-        const testId = sessionStorage.getItem('id');
+        this.routeParams = UrlManager.getQueryParams();
+        this.init();
+    }
 
-        if (testId) {
-            const xhrQuiz = new XMLHttpRequest();
-            const xhrRight = new XMLHttpRequest();
-            xhrQuiz.open('GET', 'https://testologia.ru/get-quiz?id=' + testId, false);
-            xhrRight.open('GET', 'https://testologia.ru/get-quiz-right?id=' + testId, false);
-
-            xhrQuiz.send();
-            xhrRight.send();
-
-            if (xhrQuiz.status === 200 && xhrQuiz.responseText && xhrRight.status === 200 && xhrRight.responseText) {
+    async init() {
+        if (this.routeParams.id) {
+            this.userInfo = Auth.getUserInfo();
+            if (this.userInfo) {
                 try {
-                    this.quiz = JSON.parse(xhrQuiz.responseText);
-                    this.rights = JSON.parse(xhrRight.responseText);
-                } catch (e) {
-                    sessionStorage.clear();
-                    location.href = 'index.html';
-                }
+                    const result = await CustomHttp.request(config.host + '/tests/' + this.routeParams.id + '/result/details?userId=' + this.userInfo.userId);
 
-                this.showQuestions();
-            } else {
-                sessionStorage.clear();
-                location.href = 'index.html';
+                    if (result) {
+                        if (result.error) {
+                            throw new Error(result.error);
+                        }
+
+                        document.getElementById('to-result').href = '#/result?id=' + this.routeParams.id;
+                        this.quiz = result.test;
+                        this.showQuestions();
+                    }
+                } catch (error) {
+                    console.log(error);
+                }
             }
-        } else {
-            sessionStorage.clear();
-            location.href = 'index.html';
         }
     }
 
     showQuestions() {
-        let results = sessionStorage.getItem('results');
-        this.resultsArray = (sessionStorage.getItem('results')) ? JSON.parse(results) : [];
-
-        document.getElementById('username').innerText = sessionStorage.getItem('name') + ' '
-            + sessionStorage.getItem('lastName') + ', '
-            + sessionStorage.getItem('email');
+        document.getElementById('username').innerText = this.userInfo.fullName + ', '
+            + this.userInfo.email;
 
         document.getElementById('pre-title').innerText = this.quiz.name;
 
@@ -66,16 +61,16 @@ export class Answers {
     }
 
     showAnswers(question, answerOption) {
-        const chosen = this.resultsArray.find(item => question.id === item.questionId).chosenAnswerId;
-        const right = this.rights[this.currentIndex - 1];
+        console.log(question.answers);
         question.answers.forEach(answer => {
-            const id = answer.id;
+            const correct = answer.correct;
+
             const answerBlock = document.createElement('div');
             answerBlock.className = 'answer';
 
-            if (id === right && id === chosen) {
+            if (correct) {
                 answerBlock.className += ' right';
-            } else if (id === chosen && chosen !== right) {
+            } else if (typeof correct !== "undefined") {
                 answerBlock.className += ' wrong';
             }
 

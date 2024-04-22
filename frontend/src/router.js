@@ -6,6 +6,13 @@ import {Answers} from "./components/answers.js";
 import {Auth} from "./services/auth.js";
 
 export class Router {
+    contentElement = null;
+    stylesElement = null;
+    titleElement = null;
+    profileElement = null;
+    profileFullNameElement = null;
+    routes = null;
+
     constructor() {
         this.contentElement = document.getElementById('content');
         this.stylesElement = document.getElementById('styles');

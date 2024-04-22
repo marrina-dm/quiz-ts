@@ -1,6 +1,8 @@
 import {Router} from "./router.js";
 
 class App {
+    router = null;
+
     constructor() {
         this.router = new Router();
         window.addEventListener('DOMContentLoaded', this.handleRouteChanging.bind(this));

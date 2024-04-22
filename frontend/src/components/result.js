@@ -28,6 +28,7 @@ export class Result {
                     }
 
                     document.getElementById('result-score').innerText = result.score + '/' + result.total;
+                    document.getElementById('answers-link').href = '#/answers?id=' + this.routeParams.id;
                     return;
                 }
             } catch (error) {

@@ -1,0 +1,183 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: "Museo Sans Cyrl";
+    src: url("../fonts/museosanscyrl-500.ttf");
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: "Museo Sans Cyrl";
+    src: url("../fonts/museosanscyrl-700.ttf");
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: "Poppins";
+    src: url("../fonts/Poppins-Regular.ttf");
+}
+
+body {
+    font-family: "Museo Sans Cyrl", sans-serif;
+    font-weight: 500;
+    background: rgb(255, 255, 255);
+    color: rgb(51, 51, 51);
+}
+
+a {
+    color: rgb(105, 51, 220);
+}
+
+.header {
+    padding: 40px 0;
+    border-bottom: 1px solid rgb(220, 220, 243);
+}
+
+.container {
+    max-width: 1240px;
+    padding: 0 20px;
+    margin: 0 auto;
+}
+
+.header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    width: 220px;
+}
+
+.logo img {
+    width: 100%;
+}
+
+.profile {
+    display: none;
+    align-items: center;
+}
+
+.profile-image {
+    margin-right: 5px;
+    width: 33px;
+}
+
+.profile-image img {
+    width: 100%;
+}
+
+.profile-user {
+    font-size: 18px;
+    line-height: 18px;
+}
+
+.profile-logout {
+    font-size: 12px;
+    line-height: 12px;
+}
+
+.pre-title {
+    color: rgb(220, 220, 243);
+    font-size: 20px;
+    line-height: 24px;
+}
+
+.title {
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 58px;
+}
+
+.title span,
+.big-title span {
+    color: rgb(105, 51, 220);
+}
+
+.big-title {
+    font-weight: 700;
+    font-size: 54px;
+    line-height: 65px;
+}
+
+.btn {
+    border-radius: 6px;
+    background: rgb(105, 51, 220);
+    border: 0;
+    padding: 14px 35px;
+    box-sizing: border-box;
+    color: rgb(255, 255, 255);
+    font-family: "Museo Sans Cyrl", sans-serif;
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 20px;
+    cursor: pointer;
+    transition: all .4s;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background: rgb(50, 9, 138);
+}
+
+.btn:disabled {
+    background-color: #e2def7;
+    cursor: not-allowed;
+}
+
+a.btn {
+    display: inline-block;
+}
+
+.btn-transparent {
+    background: transparent;
+    color: rgb(105, 51, 220);
+    border: 1px solid rgb(105, 51, 220);
+}
+
+.btn-transparent:hover {
+    background: rgb(105, 51, 220);
+    color: white;
+}
+
+.btn-transparent:disabled {
+    background: transparent;
+    color: #e2def7;
+    border: 1px solid #e2def7;
+}
+
+.link {
+    align-self: flex-end;
+    display: flex;
+    align-items: center;
+}
+
+.link a {
+    color: rgb(105, 51, 220);
+    font-size: 17px;
+    line-height: 20px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    transition: all .2s;
+}
+
+.link a:hover {
+    text-decoration: underline;
+}
+
+.link a img {
+    margin-left: 13px;
+    width: 8px;
+}
+
+.footer {
+    padding: 40px 0;
+    color: rgb(220, 220, 243);
+    font-size: 13px;
+    line-height: 16px;
+    text-align: center;
+}

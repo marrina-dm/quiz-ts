@@ -10,7 +10,7 @@ export class Form {
             name: "email",
             id: "email",
             element: null,
-            regex: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
+            regex: /^[^\s@]+@[^\s@]+\.(com|net|org|edu|gov|mil|io|int|ru)$/i,
             valid: false
         },
         {

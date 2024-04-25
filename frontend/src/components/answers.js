@@ -61,7 +61,6 @@ export class Answers {
     }
 
     showAnswers(question, answerOption) {
-        console.log(question.answers);
         question.answers.forEach(answer => {
             const correct = answer.correct;
 
